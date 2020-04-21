@@ -1,0 +1,21 @@
+name: Build workflow
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build job
+    steps:
+    - name: Set up step
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.8
+    - name: Build step
+      run: |
+        python build.py
+    - name: Commit step
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add docs
+        git commit -m "Updated output"
