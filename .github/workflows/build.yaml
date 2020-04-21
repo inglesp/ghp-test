@@ -6,6 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Build job
     steps:
+    - name: Check out step
+      uses: actions/checkout@v1
     - name: Set up step
       uses: actions/setup-python@v1
       with:
